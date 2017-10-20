@@ -18,6 +18,7 @@ package at.schrottner.showcase.springMVCInterception.advice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
@@ -41,6 +42,9 @@ public class RestDemoResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
         log.info("I am the responseBodyAdvice for '{}'", body);
 
+        if (body == null) {
+            response.setStatusCode(HttpStatus.NOT_FOUND);
+        }
         return body;
     }
 
