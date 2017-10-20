@@ -39,7 +39,7 @@ public class RestDemoResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
         Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
 
-        log.info("I am the responseBodyAdvice");
+        log.info("I am the responseBodyAdvice for '{}'", body);
 
         return body;
     }

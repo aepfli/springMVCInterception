@@ -41,11 +41,10 @@ public class RestDemoController {
     }
 
     /**
-     * will not be catched by the ResponseBody :D
+     * will not be catched by the ResponseBody if you put a @ResponseStatus in before it :D
      */
     @GetMapping("/withNull")
     @ResponseBody
-    @ResponseStatus(HttpStatus.CREATED)
     public DemoDTO restWithNull() {
         DemoDTO demoDTO = null;
         return demoDTO;
