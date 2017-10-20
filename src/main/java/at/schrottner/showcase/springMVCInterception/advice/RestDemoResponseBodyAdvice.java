@@ -15,6 +15,7 @@
 
 package at.schrottner.showcase.springMVCInterception.advice;
 
+import at.schrottner.showcase.springMVCInterception.dto.ErrorDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -44,6 +45,9 @@ public class RestDemoResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
         if (body == null) {
             response.setStatusCode(HttpStatus.NOT_FOUND);
+            ErrorDTO errorDTO = new ErrorDTO();
+            errorDTO.setMessage("empty stuff");
+            body = errorDTO;
         }
         return body;
     }
