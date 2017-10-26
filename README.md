@@ -231,7 +231,7 @@ public String handler(DemoException e) {
 
 ##### ResponseBody and Advices
 
-The [ResponseBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html) annotation changes how you can interact with ControllerAdvices. The reason is, that normally the response is already written, when it reaches the Advice, and is only extended with the value. As the ResponseBody annotation will generate a "completed" response, it will not allow any modification with like the @ModelAttribute annoation. Therefore we need to extend the class [ResponseBodyAdvice](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseBodyAdvice.html)<T> which will provide as a method ._beforeBodyWrite(...)_ which we can use to modify our output. This class is more powerful, than the normal @ControllerAdvice, as you can also check for null values, and adapt the responseStatus based on this informations.
+The [ResponseBody](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html) annotation changes how you can interact with ControllerAdvices. The reason is, that normally the response is already written, when it reaches the Advice, and is only extended with the value. As the ResponseBody annotation will generate a "completed" response, it will not allow any modification with like the `@ModelAttribute` annoation. Therefore we need to extend the class [ResponseBodyAdvice](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseBodyAdvice.html)<T> which will provide as a method `.beforeBodyWrite()` which we can use to modify our output. This class is more powerful, than the normal `@ControllerAdvice`, as you can also check for null values, and adapt the responseStatus based on this informations.
 
 ```
 @ControllerAdvice
@@ -259,5 +259,3 @@ public class RestDemoResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 With this article we showed you different ways to modify your response in a generic way. This should help you to reduce the amount of boilerplate code, exception handling and null checks within simple controllers. In our Project we could reduce the line number of some Controllers to a third. 
 
 I hope this little article/talk gave you an impression, about the powerful toolset SpringMVC actually is, and what you can do - I also want to encourage you, to take a closer look at all the refernce documentation we have at hand. As there is always something new to discover.
-
-
