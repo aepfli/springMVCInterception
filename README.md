@@ -219,7 +219,7 @@ public class DemoExceptionHandlerAdvice {
 }
 ```
 
-The exception handling with ControllerAdvice also lets you change the respones HTTP Status quite easily, you simply have to annotate the handler-method with [@ResponseStatus](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html)(<code>).
+The exception handling with ControllerAdvice also lets you change the respones HTTP Status quite easily, you simply have to annotate the handler-method with [@ResponseStatus](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html)().
 
 ```
 @ExceptionHandler(Exception.class)
